@@ -1,0 +1,20 @@
+import time as t
+from os import path
+"""
+Before executing the code, it will define a few special variables. 
+For example, if the python interpreter is running that module (the source file) as the main program, 
+it sets the special __name__ variable to have a value "__main__". 
+If this file is being imported from another module, __name__ will be set to the module's name.
+"""
+def createFile(dest):
+  date=t.localtime(t.time())
+  name='%d_%d_%d'%(date[2],date[1],date[0]%100)
+  if not(path.isfile(dest+name)):
+    f=open(dest+name,'w')
+    f.write("\n*30")
+    f.close()
+if __name__=='__main__':
+  destination='F:\\script\\'
+  createFile(destination)
+  print("File Created")
+  
